@@ -1,0 +1,144 @@
+<!doctype html>
+<html class="no-js" lang="tr">
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+    </header>
+    <div class="breadcumb-wrapper" data-bg-src="/img/bg/breadcrumb-bg.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcumb-content">
+                        <h1 class="breadcumb-title">Vucüt Kitle İndeksi</h1>
+                        <ul class="breadcumb-menu">
+                            <li><a href="/">ANA SAYFA</a></li>
+                            <li class="active">Hesaplama Araçları</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <style>
+        .gizli {
+           display: none;
+        }
+    </style>
+    <div class="service-details-area space-top space-extra-bottom overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-8 col-lg-7">
+                    <div class="service-page-single">
+                        <div class="page-content">
+                            <h2 class="page-title">Vucüt Kitle İndeksi Hesaplama</h2>
+                            <p class="mb-30">
+                                Vücut kitle endeksi(BMI) bir diğer adıyla boy kilo endeksi, sahip olunan vücut yağ miktarını tahmin etmek için boy ve kilo ölçümlerinden elde edilen verilerin kullanıldığı tıbbi bir tarama aracıdır. Aşağıdaki hesaplama aracını kullanarak vücut kitle endeksinizi (VKİ) hemen hesaplayabilirsiniz</p>
+                            <p class="mb-50">
+                                <form id="vkiForm">
+                                    <label for="boy">Boy (cm):</label>
+                                    <input type="number" id="boy" required><br><br>
+                                    
+                                    <label for="kilo">Kilo (kg):</label>
+                                    <input type="number" id="kilo" required><br><br>
+
+
+                                    <div id="gizli"class="gizli">  
+                                    <label for="kilo">Vucut Kitle İndeksi</label>
+                                    <input type="text" id="hesap" value="" disabled><br><br>                                    
+                                    <label for="kilo">Durum</label>
+                                    <input type="text" id="durum" value="" disabled><br><br>    
+                                    </div>                                
+                                    <input type="submit" value="Hesapla">
+                                  </form>
+                                  
+                                  <div id="sonuc"></div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-4 col-lg-5">
+                    <aside class="sidebar-area">
+                        <div class="widget widget_categories">
+                            <h3 class="widget_title">Diğer hesaplama araçları</h3>
+                            <ul>               
+                                <a href="/hesap-kitle"><i class="fa-solid fa-arrow-right"></i>Vucüt Kitle İndeksi</a>
+                                </li>
+                                <li>
+                                <a href="/hesap-bazal"><i class="fa-solid fa-arrow-right"></i>Bazal Metabolizma</a>
+                                </li>
+                                <li>
+                                <a href="/hesap-kalori"><i class="fa-solid fa-arrow-right"></i>Günlük Kalori İhtiyacı</a>
+                                </li>       
+                                <li>
+                                <a href="/hesap-vucutyag"><i class="fa-solid fa-arrow-right"></i>Vucüt Yağ Oranı</a>
+                                </li>   
+                                <li>
+                                <a href="/hesap-idealkilo"><i class="fa-solid fa-arrow-right"></i>İdeal Kilo Hesaplama</a>
+                                </li>  
+                                <li>
+                                <a href="/hesap-gunluksu"><i class="fa-solid fa-arrow-right"></i>Günlük Su İhtiyacı Hesaplama</a>
+                                </li>                                    
+                            </ul>
+                        </div> 
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-wrapper footer-layout1" data-bg-src="/img/bg/footer-1-bg.png">    
+    
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-auto align-self-center"><p class="copyright-text text-center">© 2024 <a href="#">AtlasFit.</a> Tüm Hakları Saklıdır.</p></div>
+                </div>                
+            </div>
+        </div>
+    </footer>
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg>
+    </div>
+    <script src="/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        document.getElementById("vkiForm").addEventListener("submit", function(event){
+          event.preventDefault();
+          
+          var boy = parseInt(document.getElementById("boy").value);
+          var kilo = parseInt(document.getElementById("kilo").value);
+          var vki2 = document.getElementById("hesap");
+          var durum2 = document.getElementById("durum");
+          var inputDiv = document.getElementById("gizli");
+          var vki = kilo / Math.pow(boy / 100, 2);
+          var durum;
+          
+          if(vki < 18.5){
+            durum = "Zayıf";
+          } else if(vki >= 18.5 && vki < 24.9){
+            durum = "Normal";
+          } else if(vki >= 25 && vki < 29.9){
+            durum = "Fazla Kilolu";
+          } else {
+            durum = "Obez";
+          }
+          vki2.value = vki.toFixed(2);
+          durum2.value = durum;
+          inputDiv.style.display= "block";
+
+        });
+        </script>
+</body>
+</html>
