@@ -1,0 +1,294 @@
+<!doctype html>
+<html class="no-js" lang="tr">
+<head>
+    <%- include('./partials/head') %>
+    
+</head>
+<body>
+    <script>
+       document.title = "<%= data.title %>"
+    </script>
+    <div class="popup-search-box">
+        <button class="searchClose"><i class="fal fa-times"></i></button>
+        <form action="#">
+            <input type="text" placeholder="Search Here..">
+            <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+    </div>
+    <div class="sidemenu-wrapper">
+        <div class="sidemenu-content">
+            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
+            <div class="widget footer-widget">
+                <div class="widget-about">
+                    <div class="footer-logo">
+                                                   <h1 style="color: white;">
+                              AtlasFit
+                            </h1>
+                    </div>
+                 </div>
+            </div>
+            <div class="widget widget_nav_menu footer-widget">
+                <h3 class="widget_title">Bağlantılar</h3>
+                <ul class="menu">
+                    <li><a href="/">Hakkımızda</a></li>
+                    <li><a href="/">İçerikler</a></li>
+                    <li><a href="/">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-menu-wrapper">
+        <div class="mobile-menu-area text-center">
+            <button class="menu-toggle"><i class="fal fa-times"></i></button>
+            <div class="mobile-logo">
+                           <a href="/">
+                              <h1 
+                              style=
+                              "color: white;
+                              ">
+                              AtlasFit
+                              </h1>
+                          </a>
+            </div>
+            <div class="mobile-menu">
+                <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
+                <div class="widget footer-widget">
+                    <div class="widget-about">
+                        <div class="footer-logo">
+                           <a href="/">
+                              <h1 
+                              style=
+                              "color: white;
+                              ">
+                              AtlasFit
+                              </h1>
+                          </a>
+                        </div>
+                     </div>
+                </div>
+                <div class="widget widget_nav_menu footer-widget">
+                    <h3 class="widget_title">Bağlantılar</h3>
+                    <ul class="menu">
+                        <% if(token) {%>
+                            <li class="menu-item-has-children">
+                                <a href="#">Yönetici Haraketleri</a>
+                                <ul class="sub-menu">
+                                    <form method="POST">
+                                    <li><a href="/edit-post/<%= data._id %>">Yazıyı Düzenle</a></li>
+                                    
+                                        <li><a href="/delete-post/<%= data._id %>">Yazıyı Sil</a>
+                                        </li></form>
+                               
+                                </ul>
+                            </li>   
+                        <% } %>
+                        <li class="menu-item">
+                            <a href="/blog">Blog</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Hesaplayıcı APP</a>
+                            <ul class="sub-menu">
+                                <li><a href="/hesap-kitle">Vucüt Kitle İndeksi</a></li>
+                                <li><a href="/hesap-bazal">Bazal Metabolizma</a></li>
+                                <li><a href="/hesap-kalori">Günlük Kalori İhtiyacı</a></li>
+                                <li><a href="/hesap-vucutyag">Vucüt Yağ Oranı</a></li>
+                                <li><a href="/hesap-idealkilo">İdeal Kilo Hesaplama</a></li>
+                                <li><a href="/hesap-gunluksu">Günlük Su İhtiyacı Hesaplama</a></li>
+                            
+                            </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="nav-header header-layout">
+
+        <div class="sticky-wrapper">
+            <div class="menu-area">
+                <div class="container-fluid">
+                    <div class="row align-items-center justify-content-lg-start justify-content-between">
+                        <div class="col-auto">
+                            <div class="header-logo">
+                           <a href="/">
+                              <h1 
+                              style=
+                              "color: black;
+                              ">
+                              AtlasFit
+                              </h1>
+                          </a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <nav class="main-menu d-none d-lg-inline-block">
+                                <ul>
+                                    <% if(token) {%>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">Yönetici Haraketleri</a>
+                                            <ul class="sub-menu">
+                                                <form method="POST">
+                                                <li><a href="/edit-post/<%= data._id %>">Yazıyı Düzenle</a></li>
+                                                
+                                                    <li><a href="/delete-post/<%= data._id %>">Yazıyı Sil</a>
+                                                    </li></form>
+                                           
+                                            </ul>
+                                        </li>   
+                                    <% } %>
+                                    <li class="menu-item">
+                                        <a href="/blog">Blog</a>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a href="#">Hesaplayıcı APP</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="/hesap-kitle">Vucüt Kitle İndeksi</a></li>
+                                            <li><a href="/hesap-bazal">Bazal Metabolizma</a></li>
+                                            <li><a href="/hesap-kalori">Günlük Kalori İhtiyacı</a></li>
+                                            <li><a href="/hesap-vucutyag">Vucüt Yağ Oranı</a></li>
+                                            <li><a href="/hesap-idealkilo">İdeal Kilo Hesaplama</a></li>
+                                            <li><a href="/hesap-gunluksu">Günlük Su İhtiyacı Hesaplama</a></li>
+                                        
+                                        </ul>
+                                    </li>                            
+                                </ul>
+                            </nav>
+                            <div class="navbar-right d-inline-flex d-lg-none">
+                                <button type="button" class="menu-toggle icon-btn"><i class="far fa-bars"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-auto ms-auto d-lg-block d-none">
+                    
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <div class="header-button">
+                                <a href="/" class="btn d-xl-block d-none">
+                                    İletişim
+                                </a>
+                                <button type="button" class="btn btn-border sideMenuToggler">
+                                    <i class="far fa-bars"></i>                                         
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcumb-wrapper" data-bg-src="<%= data.img %>">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcumb-content">
+                        <h1 class="breadcumb-title"><%= data.title %></h1>
+                        <ul class="breadcumb-menu">
+                            <li><a href="/">Ana Sayfa</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li class="active"><%= data.title %></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <section class="blog-area space-top space-extra-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-8 col-lg-7">
+                    <div class="blog-single">
+                        <div class="blog-thumb">
+                            <img src="<%= data.img %>"  style="width: 641px;height: 330px;" alt="img">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <a href="/post/<%= data._id %>"><i class="far fa-clock"></i><%= moment(data.createdAt).format('Do MMMM dddd, YYYY, h:mm a') %></a>
+                                <a href="/post/<%= data._id %>"><i class="far fa-user"></i>Ekleyen: Admin</a>  
+                            </div>
+                            <h2 class="blog-title"><%= data.title %></h2>
+                            <p class="mb-30"><%= data.aciklama %>
+                            </p>
+                            <%- data.body %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-4 col-lg-5">
+                    <aside class="sidebar-area">
+          
+
+                        <div class="widget">
+                            <h3 class="widget_title">Geçmiş Yazılarımız</h3>
+                            <div class="recent-post-wrap">
+                                <% eski.forEach(post => { %>                          
+                                    <div class="recent-post">
+                                        <div class="media-img">
+                                            <% if(post.img.length > 5) {%>
+                                                <a href="/post/<%= post._id %>"><img src="<%=post.img%>" alt="Blog Image"></a>
+                                           
+                                                <% } else { %>
+                                            <a href="/post/<%= post._id %>"><img src="img/blog/recent-post1.png" alt="Blog Image"></a>
+                                            <%}%>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="post-title"><a class="text-inherit" href="/post/<%= post._id %>"><%= post.title %></a></h4>
+                                            <div class="recent-post-meta">
+                                                <a href="/post/<%= post._id %>"><%= moment(post.createdAt).format('Do MMMM dddd, YYYY, h:mm a') %></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                          
+                                
+                                    <% }) %>  
+                            </div>
+                        </div>
+                        <div class="widget widget_gallery">
+                            <h3 class="widget_title">Galeri</h3>
+                            <div class="insta-feed">
+                                <% eski.forEach(post => { %>   
+                                    <% if(post.img.length > 5) {%>  
+                                <a href="/post/<%= post._id %>"><img src="<%= post.img %>" alt="img">
+                                    <% } else { %>
+                                        <a href="/post/<%= post._id %>l"><img src="img/widget/widget1-1.png" alt="img">
+                                        <%}%>
+                                <i class="fab fa-click"></i></a>
+                            <% })%>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>   
+    <footer class="footer-wrapper footer-layout1" data-bg-src="/img/bg/footer-1-bg.png">    
+    
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-auto align-self-center"><p class="copyright-text text-center">© 2024 <a href="#">AtlasFit.</a> Tüm Hakları Saklıdır.</p></div>
+                </div>                
+            </div>
+        </div>
+    </footer>
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg>
+    </div>
+    <script src="/js/vendor/jquery-3.6.0.min.js"></script>
+
+    <script src="/js/slick.min.js"></script>
+
+    <script src="/js/bootstrap.min.js"></script>
+
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+
+    <script src="/js/jquery-ui.min.js"></script>
+
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+        <script src="/js/main.js"></script>
+</body>
+</html>

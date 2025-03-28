@@ -1,0 +1,223 @@
+<!doctype html>
+<html class="no-js" lang="tr">
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+    
+    </header>
+    <div class="breadcumb-wrapper" data-bg-src="/img/bg/breadcrumb-bg.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcumb-content">
+                        <h1 class="breadcumb-title">Vücut Yağ Oranı Hesaplama</h1>
+                        <ul class="breadcumb-menu">
+                            <li><a href="/">ANA SAYFA</a></li>
+                            <li class="active">Hesaplama Araçları</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <style>
+        .gizli {
+           display: none;
+        }
+        @import url('https://fonts.googleapis.com/css?family=Lato:400,500,600,700&display=swap');
+.wrapper{
+  display: inline-flex;
+  background: #fff;
+  height: 74px;
+  width: 357px;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 20px 15px;
+  box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+}
+.wrapper .option{
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 2px solid lightgrey;
+  transition: all 0.3s ease;
+}
+.wrapper .option .dot{
+  height: 20px;
+  width: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+.wrapper .option .dot::before{
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.3s ease;
+}
+input[type="radio"]{
+  display: none;
+}
+#option-1:checked:checked ~ .option-1,
+#option-2:checked:checked ~ .option-2{
+  border-color: #0069d9;
+  background: #0069d9;
+}
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot{
+  background: #fff;
+}
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before{
+  opacity: 1;
+  transform: scale(1);
+}
+.wrapper .option span{
+  font-size: 20px;
+  color: #808080;
+}
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span{
+  color: #fff;
+}
+    </style>
+    <div class="service-details-area space-top space-extra-bottom overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-8 col-lg-7">
+                    <div class="service-page-single">
+                        <div class="page-content">
+                            <h2 class="page-title">Vücut Yağ Oranı Hesaplama</h2>
+                            <p class="mb-30">
+                                Vücut yağ oranı, genel vücut kompozisyonunuzun ve ağırlığınızın ne kadarının yağ, ne kadarının yağsız kütle olduğunu gösteren bir ölçümdür. Vücudunuzdaki yağ dokusunun temel işlevi enerjiyi lipit şeklinde depolamanın yanı sıra organları desteklemek ve onları birbirinden yalıtmaktır. Aşağıdaki hesaplama aracından vücut yağ oranınızı hesaplayabilirsiniz. 
+                                <form id="vkiForm"> 
+                                    <label for="height">Boyunuz (cm):</label>
+                                    <input type="number" id="height" required><br><br>
+                                    <label for="height">Bel Çevresi (cm):</label>
+                                    <input type="number" id="bel" required><br><br>
+                                    <label for="height">Kalça Çevresi (cm):</label>
+                                    <input type="number" id="kalca" required><br><br>
+                                    <label for="height">Boyun Çevresi (cm):</label>
+                                    <input type="number" id="neck" required><br><br>
+                                    <div class="wrapper">
+                                        <input type="radio" value="erkek" name="select" id="option-1" required>
+                                        <input type="radio" name="select" value="Kadın" id="option-2" required>
+                                          <label for="option-1" class="option option-1">
+                                            <div class="dot"></div>
+                                             <span>Erkek</span>
+                                             </label>
+                                          <label for="option-2" class="option option-2">
+                                            <div class="dot"></div>
+                                             <span>Kadın</span>
+                                          </label>
+                                    </div>
+                                    <div id="gizli"class="gizli">  
+                                    <br>
+                                    <label for="kilo">Vucüt Yağ Oranınız: </label>
+                                    <input type="text" id="hesap" value="" disabled><br><br>                                    
+                                    </div>                   
+                                    <br><br>             
+                                    <input type="submit" value="Hesapla">
+                                  </form>
+                                  
+                                  <div id="sonuc"></div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-4 col-lg-5">
+                    <aside class="sidebar-area">
+                        <div class="widget widget_categories">
+                            <h3 class="widget_title">Diğer hesaplama araçları</h3>
+                            <ul>               
+                                <a href="/hesap-kitle"><i class="fa-solid fa-arrow-right"></i>Vucüt Kitle İndeksi</a>
+                                </li>
+                                <li>
+                                <a href="/hesap-bazal"><i class="fa-solid fa-arrow-right"></i>Bazal Metabolizma</a>
+                                </li>
+                                <li>
+                                <a href="/hesap-kalori"><i class="fa-solid fa-arrow-right"></i>Günlük Kalori İhtiyacı</a>
+                                </li>       
+                                <li>
+                                <a href="/hesap-vucutyag"><i class="fa-solid fa-arrow-right"></i>Vucüt Yağ Oranı</a>
+                                </li>   
+                                <li>
+                                <a href="/hesap-idealkilo"><i class="fa-solid fa-arrow-right"></i>İdeal Kilo Hesaplama</a>
+                                </li>  
+                                <li>
+                                <a href="/hesap-gunluksu"><i class="fa-solid fa-arrow-right"></i>Günlük Su İhtiyacı Hesaplama</a>
+                                </li>                                    
+                            </ul>
+                        </div> 
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-wrapper footer-layout1" data-bg-src="/img/bg/footer-1-bg.png">    
+    
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-auto align-self-center"><p class="copyright-text text-center">© 2024 <a href="#">AtlasFit.</a> Tüm Hakları Saklıdır.</p></div>
+                </div>                
+            </div>
+        </div>
+    </footer>
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg>
+    </div>
+    <script src="/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        document.getElementById("vkiForm").addEventListener("submit", function(event){
+          event.preventDefault();
+          var height = parseFloat(document.getElementById("height").value);      
+    var waist = parseFloat(document.getElementById("bel").value);
+    var neck = parseFloat(document.getElementById("neck").value);
+    var hip = parseFloat(document.getElementById("kalca").value);
+    var gender = document.querySelector('input[name="select"]:checked').value;
+    var bodyFatPercentage;
+
+if (gender === 'male') {
+  bodyFatPercentage = 86.010 * Math.log10(waist - neck) - 70.041 * Math.log10(height) + 36.76;
+} else {
+  bodyFatPercentage = 163.205 * Math.log10(waist + hip - neck) - 97.684 * Math.log10(height) - 78.387;
+}
+    
+    var vki2 = document.getElementById("hesap");
+          var durum2 = document.getElementById("durum");
+          var inputDiv = document.getElementById("gizli");
+          vki2.value = bodyFatPercentage.toFixed(2)  +" %";
+          inputDiv.style.display= "block";
+        });
+        </script>
+</body>
+</html>

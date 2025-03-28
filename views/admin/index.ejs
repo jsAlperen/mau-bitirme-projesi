@@ -1,0 +1,149 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <%- include('../partials/head') %>
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+    
+    </header>
+    <div class="breadcumb-wrapper" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcumb-content">
+                        <h1 class="breadcumb-title">AtlasFit Yönetim Paneli</h1>
+                        <ul class="breadcumb-menu">
+                            <li><a href="/">ANA SAYFA</a></li>
+                            <li class="active">AtlasFit Yönetim Paneli</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <style>
+        .gizli {
+           display: none;
+        }
+        @import url('https://fonts.googleapis.com/css?family=Lato:400,500,600,700&display=swap');
+.wrapper{
+  display: inline-flex;
+  background: #fff;
+  height: 74px;
+  width: 357px;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 20px 15px;
+  box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+}
+.wrapper .option{
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 2px solid lightgrey;
+  transition: all 0.3s ease;
+}
+.wrapper .option .dot{
+  height: 20px;
+  width: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+.wrapper .option .dot::before{
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.3s ease;
+}
+input[type="radio"]{
+  display: none;
+}
+#option-1:checked:checked ~ .option-1,
+#option-2:checked:checked ~ .option-2{
+  border-color: #0069d9;
+  background: #0069d9;
+}
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot{
+  background: #fff;
+}
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before{
+  opacity: 1;
+  transform: scale(1);
+}
+.wrapper .option span{
+  font-size: 20px;
+  color: #808080;
+}
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span{
+  color: #fff;
+}
+    </style>
+    <div class="service-details-area space-top space-extra-bottom overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-8 col-lg-7">
+                    <div class="service-page-single">
+                        <div class="page-content" style="align-items: center;">
+                            <h2 class="page-title">Yönetim Paneli</h2>
+                            <p class="mb-30" style="align-items: center;">
+                                <form action="/admin" method="POST">     
+                                    <label for="username">Kullanıcı Adı</label>
+                                    <input type="text" name="username" required><br><br>
+                                    <label for="password">Şifre</label>
+                                    <input type="password" name="password" required><br><br>
+                                    <input type="submit" value="Giriş Yap">
+                                </form>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-wrapper footer-layout1" data-bg-src="/img/bg/footer-1-bg.png">    
+    
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-auto align-self-center"><p class="copyright-text text-center">© 2024 <a href="#">AtlasFit.</a> Tüm Hakları Saklıdır.</p></div>
+                </div>                
+            </div>
+        </div>
+    </footer>
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg>
+    </div>
+    <script src="/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
